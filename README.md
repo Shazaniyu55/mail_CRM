@@ -42,4 +42,4 @@ License This project is licensed under the MIT License - see the LICENSE file fo
 
 Contact For any questions or support, please contact:
 
-Author: Shazaniyu Gbadamosi company: Adain Technologies Limited.. Team: [ UI/UX:"zainab ekehide, wisdom obihosa", FrontEnd: "Destined Obihosa", BackEnd: "Shazaniyu Gbadamosi, Racheal Omiachi" ] Links: GitHub: shazaniyu GitHub: Destined GitHub: Miss Zainab GitHub: Miss racheal omiachi GitHub: Wisdom obihosa
+Author: Shazaniyu Gbadamosi 
