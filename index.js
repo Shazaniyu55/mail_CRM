@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const cors = require("cors");
 const mongoose = require("mongoose");
+const authRoute = require("./routes/userroutes");
+
 const port  = 4200;
 require('dotenv').config();
 
@@ -26,6 +28,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors());
 
+app.use("/api/auth", authRoute);
 
 app.use((req, res, next)=>{
     res.render('404')

@@ -23,7 +23,7 @@ const upload = multer({ storage: storage });
 
 
 
-//authentication routes
+//authentication api routes
 router.post("/register",signUp);
 router.post("/login", logIn);
 router.post("/message", message);
