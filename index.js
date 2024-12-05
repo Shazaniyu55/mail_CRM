@@ -21,7 +21,7 @@ const options = {
         },
         servers:[
             {
-                url:'http://localhost:4200/'
+                url:'https://mail-crm.vercel.app/'
             }
         ]
     },
@@ -49,6 +49,17 @@ app.use(cors());
 app.use("/api/auth", authRoute);
 app.use("/api-docs", swaggerui.serve, swaggerui.setup(swaggerSpec));
 
+
+/**
+ * @swagger
+ * /:
+ *  get:
+ *      summary: This api is used to check if get method is working
+ *      description: This api is used to check if get method is working
+ *      responses:
+ *              200:
+ *                  description: To test the GET
+ */
 
 app.use((req, res, next)=>{
     res.render('404')
