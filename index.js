@@ -10,9 +10,9 @@ const port  = 4200;
 require('dotenv').config();
 
 
-mongoose.connect(process.env.MONGODB_CONNECTION)
-.then(()=>{console.log("Database Connected")})
-.catch((err)=>{console.log(err)});
+// mongoose.connect(process.env.MONGODB_CONNECTION)
+// .then(()=>{console.log("Database Connected")})
+// .catch((err)=>{console.log(err)});
 
 app.use(session({
     secret: process.env.SESSION_SECRETE,
@@ -29,6 +29,10 @@ app.use(express.urlencoded({extended: true}));
 app.use(cors());
 
 app.use("/api/auth", authRoute);
+
+app.get('/', (req, res)=>{
+    res.send("server working")
+})
 
 app.use((req, res, next)=>{
     res.render('404')
