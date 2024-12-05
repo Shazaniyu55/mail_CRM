@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const cors = require("cors");
 const mongoose = require("mongoose");
-
 const port  = 4200;
 require('dotenv').config();
 
