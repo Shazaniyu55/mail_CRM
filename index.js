@@ -27,7 +27,7 @@ const options = {
     },
     apis: ['./index.js']
 }
-const swaggerSpec = swaggerjsdocs(options);
+
 // mongoose.connect(process.env.MONGODB_CONNECTION)
 // .then(()=>{console.log("Database Connected")})
 // .catch((err)=>{console.log(err)});
@@ -45,15 +45,33 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors());
-
-app.use("/api/auth", authRoute);
+const swaggerSpec = swaggerjsdocs(options);
 app.use("/api-docs", swaggerui.serve, swaggerui.setup(swaggerSpec));
+app.use("/api/auth", authRoute);
+
 
 
 /**
  * @swagger
- * /:
- *  get:
+ * https://mail-crm.vercel.app/api/auth/register:
+ *  post:
+ *      summary: This api is used to register a new user
+ *      description: The api  collects json data from the frontend.
+ *      responses:
+ *              200:
+ *                  description: Success
+ *      parameters:
+ *                 firstname, lastname
+ *                      
+ *                      
+ *                 
+ */
+
+
+/**
+ * @swagger
+ * https://mail-crm.vercel.app/api/auth/login:
+ *  post:
  *      summary: This api is used to check if get method is working
  *      description: This api is used to check if get method is working
  *      responses:
@@ -61,9 +79,36 @@ app.use("/api-docs", swaggerui.serve, swaggerui.setup(swaggerSpec));
  *                  description: To test the GET
  */
 
-app.use((req, res, next)=>{
-    res.render('404')
+/**
+ * @swagger
+ * https://mail-crm.vercel.app/api/auth/:
+ *  delete:
+ *      summary: This api is used to check if get method is working
+ *      description: This api is used to check if get method is working
+ *      responses:
+ *              200:
+ *                  description: To test the GET
+ */
+
+
+
+/**
+ * @swagger
+ * https://mail-crm.vercel.app/api/auth/message:
+ *  post:
+ *      summary: This api is used to send email message 
+ *      description: This api is used to check if get method is working
+ *      responses:
+ *              200:
+ *                  description: To test the GET
+ */
+
+
+app.get('/', (req, res)=>{
+    res.send('4welcome to mail-crm server')
 })
+
+
 
 app.listen(port, ()=>{
     console.log(`server running at http://localhost:${port}`)
