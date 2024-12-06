@@ -3,50 +3,9 @@ const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
-
 const jwt = require('jsonwebtoken');
 
 
-//function to login
-
-
-
-const logIn = async(req, res)=>{
-    
-    try {
-        const { email, password } = req.body;
-        const user = await User.findOne({ email });
-        if (!user || !(await user.comparePassword(password))) {
-            return res.status(401).json({ status: "Failed", message: "invalid email or password" });
-        }
-
-        // Generate a JWT token
-        const token = jwt.sign({ id: user._id }, 'Adain', { expiresIn: '1h' }); // 1 hour expiration
-        
-    
-             
-
-                // Send success response
-                res.status(200).json({
-                    status: "Success",
-                    message: "Login successful",
-                    token,
-                    user
-                });
-        
-                // Redirect to the dashboard
-                // res.redirect('/dashboard');
-    } catch (error) {
-        console.error("Error during login:", error);
-
-        // Handle errors and ensure only one response
-        if (!res.headersSent) {
-            res.status(500).json({ status: "Failed", message: error.message });
-        }   
-    }
-    
-    
-};
 
 
 //function to request a password rest
@@ -384,7 +343,52 @@ const firebaseLogin = async (req, res)=>{
 }
 
 
+const videoConference = async(req, res)=>{
 
+}
+
+const bulkMessage = async(req, res)=>{
+
+}
+
+
+const logIn = async(req, res)=> 
+    {
+    
+    try {
+        const { email, password } = req.body;
+        const user = await User.findOne({ email });
+        if (!user || !(await user.comparePassword(password))) {
+            return res.status(401).json({ status: "Failed", message: "invalid email or password" });
+        }
+
+        // Generate a JWT token
+        const token = jwt.sign({ id: user._id }, 'Adain', { expiresIn: '1h' }); // 1 hour expiration
+        
+    
+             
+
+                // Send success response
+                res.status(200).json({
+                    status: "Success",
+                    message: "Login successful",
+                    token,
+                    user
+                });
+        
+                // Redirect to the dashboard
+                // res.redirect('/dashboard');
+    } catch (error) {
+        console.error("Error during login:", error);
+
+        // Handle errors and ensure only one response
+        if (!res.headersSent) {
+            res.status(500).json({ status: "Failed", message: error.message });
+        }   
+    }
+    
+    
+};
 
 
 module.exports =
@@ -398,6 +402,7 @@ module.exports =
     resetPassword, 
     renderResetPasswordPage,
     firebaseLogin,
-    
+    videoConference,
+    bulkMessage
 
 };
