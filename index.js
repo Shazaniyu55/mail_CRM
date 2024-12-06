@@ -50,7 +50,6 @@ app.use("/api-docs", swaggerui.serve, swaggerui.setup(swaggerSpec));
 app.use("/api/auth", authRoute);
 
 
-
 /**
  * @swagger
  * /api/auth/register:
@@ -64,18 +63,34 @@ app.use("/api/auth", authRoute);
  *                  schema:
  *                      type: object
  *                      properties:
- *                          firstname:
+ *                          fullname:
  *                              type: string
- *                              example: John
- *                          lastname:
+ *                              example: John Doe
+ *                          phoneNumber:
  *                              type: string
- *                              example: Doe
+ *                              example: 09074235666
+ *                          email:
+ *                              type: string
+ *                              example: shazaniyu@example.com
+ *                          accountBank:
+ *                              type: string
+ *                              example: access
+ *                          country:
+ *                              type: string
+ *                              example: Nigeria
+ *                          businessType:
+ *                              type: string
+ *                              example: Pure water
+ *                          password:
+ *                              type: string
+ *                              example: shazaniyu2@
  *      responses:
  *          200:
  *              description: Success
  *          400:
  *              description: Bad Request
  */
+
 
 /**
  * @swagger
