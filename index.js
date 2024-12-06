@@ -21,7 +21,7 @@ const options = {
         },
         servers:[
             {
-                url:'http://localhost:4200/'
+                url:'https://mail-crm.vercel.app/'
             }
         ]
     },
