@@ -21,16 +21,16 @@ const options = {
         },
         servers:[
             {
-                url:'https://mail-crm.vercel.app/'
+                url:'http://localhost:4200/'
             }
         ]
     },
     apis: ['./index.js']
 }
 
-// mongoose.connect(process.env.MONGODB_CONNECTION)
-// .then(()=>{console.log("Database Connected")})
-// .catch((err)=>{console.log(err)});
+mongoose.connect(process.env.MONGODB_CONNECTION)
+.then(()=>{console.log("Database Connected")})
+.catch((err)=>{console.log(err)});
 
 app.use(session({
     secret: process.env.SESSION_SECRETE,
