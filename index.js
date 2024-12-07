@@ -5,6 +5,7 @@ const session = require('express-session');
 const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/userroutes");
+const paymentRoute = require("./routes/payment");
 const path = require('path');
 const port  = 4200;
 const swaggerjsdocs = require('swagger-jsdoc');
@@ -53,7 +54,7 @@ app.use("/api-docs", swaggerui.serve, swaggerui.setup(swaggerSpec, {
 customCssUrl: CSS_URL,
 }));
 app.use("/api/auth", authRoute);
-
+app.use("/api/payment", paymentRoute);
 
 /**
  * @swagger
