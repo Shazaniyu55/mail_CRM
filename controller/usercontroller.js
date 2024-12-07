@@ -40,9 +40,9 @@ const requestPasswordReset = async (req, res) => {
 
         // Send password reset email
         //const resetUrl = `http://localhost:3500/reset-password`;
-        const resetUrl = `http://localhost:3500/reset-password?token=${resetToken}`;
+        const resetUrl = `http://localhost:3100/reset-password?token=${resetToken}`;
         await transporter.sendMail({
-            from: 'affliate@gmail.com',
+            from: 'mail-crm@gmail.com',
             to: `${email}`,
             subject: 'Password Reset Request',
             html: `<p>You requested a password reset. Click the link below to reset your password:</p>
