@@ -146,8 +146,8 @@ const signUp = async (req, res) => {
             });
             
         } catch (error) {
-            console.error('Error saving product:', error);
-                res.status(500).send('Error saving product');
+            console.error('Error saving user:', error);
+                res.status(500).send('Error saving user');
         }
       }
   
