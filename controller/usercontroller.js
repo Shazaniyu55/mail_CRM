@@ -343,13 +343,9 @@ const firebaseLogin = async (req, res)=>{
 }
 
 
-const videoConference = async(req, res)=>{
+const teamcollaborate = async(user)=>{}
 
-}
 
-const bulkMessage = async(req, res)=>{
-
-}
 
 
 const logIn = async(req, res)=> 
@@ -402,7 +398,6 @@ module.exports =
     resetPassword, 
     renderResetPasswordPage,
     firebaseLogin,
-    videoConference,
-    bulkMessage
+    
 
 };

@@ -174,6 +174,49 @@ app.use("/api/auth", authRoute);
 
 
 
+
+/**
+ * @swagger
+ * /api/payment/submitpayment:
+ *  post:
+ *      summary: This API is used to make a new payment
+ *      description: The API collects JSON data from the frontend to register a new user.
+ *      requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: object
+ *                      properties:
+ *                          fullname:
+ *                              type: string
+ *                              example: John Doe
+ *                          phoneNumber:
+ *                              type: string
+ *                              example: 09074235666
+ *                          email:
+ *                              type: string
+ *                              example: shazaniyu@example.com
+ *                          accountBank:
+ *                              type: string
+ *                              example: access
+ *                          country:
+ *                              type: string
+ *                              example: Nigeria
+ *                          businessType:
+ *                              type: string
+ *                              example: Pure water
+ *                          password:
+ *                              type: string
+ *                              example: shazaniyu2@
+ *      responses:
+ *          200:
+ *              description: Success
+ *          400:
+ *              description: Bad Request
+ */
+
+
 app.get('/', (req, res)=>{
     res.send('4welcome to mail-crm server')
 })
