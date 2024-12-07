@@ -22,7 +22,7 @@ const options = {
         },
         servers:[
             {
-                url:'https://mail-crm.vercel.app/'
+                url:'http://localhost:4200/'
             }
         ]
     },
@@ -81,6 +81,9 @@ app.use("/api/payment", paymentRoute);
  *                          country:
  *                              type: string
  *                              example: Nigeria
+ *                          plan:
+ *                             type: string
+ *                             example: Premium
  *                          password:
  *                              type: string
  *                              example: shazaniyu2@

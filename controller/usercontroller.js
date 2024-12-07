@@ -99,16 +99,29 @@ const resetPassword = async (req, res) => {
 
 const signUp = async (req, res) => {
     try {
-      const { fullname, phoneNumber, email,country,  password } = req.body;
+      const { fullname, phoneNumber, email,country,  password, plan } = req.body;
   //console.log(fullname, phoneNumber)
-      if (!fullname || !phoneNumber || !country  || !email || !password) {
+      if (!fullname || !phoneNumber || !country  || !email || !password || !plan) {
         return res.status(400).json({ status: "Failed", message: "Please fill out all fields." });
         
       }
   
-      //let imageURL = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
   
-    
+    // Validate the plan
+    const validPlans = ['Standard', 'Premium'];
+    if (!validPlans.includes(plan)) {
+      return res.status(400).json({ 
+        status: "Failed", 
+        message: "Invalid subscription plan selected." 
+      });
+    }
+
+       // Define subscription details based on the plan
+       const planDetails = {
+        Standard: { emailLimit: 1000, durationInMonths: 1 },
+        Premium: { emailLimit: 5000, durationInMonths: 1 },
+      };
+      const selectedPlan = planDetails[plan];
 
       async function createuser(){
 
@@ -119,6 +132,13 @@ const signUp = async (req, res) => {
         country,
         email,
         password,
+        subscription: {
+            plan,
+            startDate: new Date(),
+            endDate: new Date(new Date().setMonth(new Date().getMonth() + selectedPlan.durationInMonths)),
+            remainingEmails: selectedPlan.emailLimit,
+            status: 'active',
+          },
         
       });
 
