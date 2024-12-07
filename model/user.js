@@ -19,11 +19,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-   
-    accountBank: {
-        type: String,
-        required: true
-    },    
+     
     
     email: {
         type: String,
@@ -32,10 +28,6 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         trim: true,
 
-    },
-    businessType:{
-        type: String,
-        required: true
     },
     
     notificationsCount: {
@@ -54,6 +46,30 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: null
     },
+    subscription: {
+        plan: {
+          type: String,
+          enum: ['Standard', 'Premium'],
+          required: false,
+        },
+        startDate: {
+          type: Date,
+          required: false,
+        },
+        endDate: {
+          type: Date,
+          required: false,
+        },
+        remainingEmails: {
+          type: Number,
+          required: false,
+        },
+        status: {
+          type: String,
+          enum: ['active', 'inactive', 'canceled', 'expired'],
+          default: 'inactive',
+        },
+      },
 
     firebaseUID:{
         type: String,

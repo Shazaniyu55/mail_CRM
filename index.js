@@ -78,15 +78,9 @@ app.use("/api/payment", paymentRoute);
  *                          email:
  *                              type: string
  *                              example: shazaniyu@example.com
- *                          accountBank:
- *                              type: string
- *                              example: access
  *                          country:
  *                              type: string
  *                              example: Nigeria
- *                          businessType:
- *                              type: string
- *                              example: Pure water
  *                          password:
  *                              type: string
  *                              example: shazaniyu2@

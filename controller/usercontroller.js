@@ -99,9 +99,9 @@ const resetPassword = async (req, res) => {
 
 const signUp = async (req, res) => {
     try {
-      const { fullname, phoneNumber, email,  accountBank,country, businessType,  password } = req.body;
+      const { fullname, phoneNumber, email,country,  password } = req.body;
   //console.log(fullname, phoneNumber)
-      if (!fullname || !phoneNumber || !country   || !accountBank || !email || !password || !businessType) {
+      if (!fullname || !phoneNumber || !country  || !email || !password) {
         return res.status(400).json({ status: "Failed", message: "Please fill out all fields." });
         
       }
@@ -117,9 +117,7 @@ const signUp = async (req, res) => {
         fullname,
         phoneNumber,
         country,
-        accountBank,
         email,
-        businessType,
         password,
         
       });
