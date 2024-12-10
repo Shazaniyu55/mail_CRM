@@ -175,7 +175,7 @@ app.use("/api/payment", paymentRoute);
 
 /**
  * @swagger
- * /api/payment/submitpayment:
+ * /api/payment/subscription:
  *  post:
  *      summary: This API is used to make a new payment
  *      description: The API collects JSON data from the frontend to register a new user.
@@ -186,27 +186,18 @@ app.use("/api/payment", paymentRoute);
  *                  schema:
  *                      type: object
  *                      properties:
- *                          fullname:
+ *                          userId:
  *                              type: string
- *                              example: John Doe
- *                          phoneNumber:
- *                              type: string
- *                              example: 09074235666
+ *                              example: 67484330b8a5265d16fbad75
  *                          email:
  *                              type: string
- *                              example: shazaniyu@example.com
- *                          accountBank:
+ *                              example: shazaniyu@gmail.com
+ *                          package:
  *                              type: string
- *                              example: access
- *                          country:
+ *                              example: premium
+ *                          name:
  *                              type: string
- *                              example: Nigeria
- *                          businessType:
- *                              type: string
- *                              example: Pure water
- *                          password:
- *                              type: string
- *                              example: shazaniyu2@
+ *                              example: john
  *      responses:
  *          200:
  *              description: Success
