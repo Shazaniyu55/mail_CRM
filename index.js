@@ -46,7 +46,7 @@ app.use(session({
 //app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
-app.use(cors({origin:"http://localhost:3000"}));
+app.use(cors({origin:"http://localhost:3000", methods: "GET, POST"}));
 const swaggerSpec = swaggerjsdocs(options);
 app.use("/api-docs", swaggerui.serve, swaggerui.setup(swaggerSpec, {
     customCss:
