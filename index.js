@@ -46,7 +46,12 @@ app.use(session({
 //app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
-app.use(cors({origin:"http://localhost:3000/", methods: 'GET, POST, PUT, DELETE', allowedHeaders:'Content-Type,authorization'}));
+app.use(cors({
+    origin: "http://localhost:3000",          // Removed the trailing slash
+    methods: 'GET, POST, PUT, DELETE',       // Methods allowed
+    allowedHeaders: 'Content-Type, Authorization' // Corrected 'authorization' to 'Authorization'
+  }));
+app.options('*', cors())
 const swaggerSpec = swaggerjsdocs(options);
 app.use("/api-docs", swaggerui.serve, swaggerui.setup(swaggerSpec, {
     customCss:
