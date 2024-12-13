@@ -361,8 +361,6 @@ const firebaseLogin = async (req, res)=>{
 }
 
 
-const teamcollaborate = async(user)=>{}
-
 
 
 

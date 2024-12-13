@@ -17,12 +17,12 @@ const options = {
     definition:{
         openapi: '3.0.0',
         info: {
-            title:" mail-crm",
+            title:" ADNET",
             version:"1.0.0"
         },
         servers:[
             {
-                url:'https://mail-crm.vercel.app/'
+                url:'http://localhost:4200/'
             }
         ]
     },
